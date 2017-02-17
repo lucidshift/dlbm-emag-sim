@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gnm:Workbook xmlns:gnm="http://www.gnumeric.org/v10.dtd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gnumeric.org/v9.xsd">
+  <gnm:Version Epoch="1" Major="12" Minor="9" Full="1.12.9"/>
+  <gnm:Attributes>
+    <gnm:Attribute>
+      <gnm:name>WorkbookView::show_horizontal_scrollbar</gnm:name>
+      <gnm:value>TRUE</gnm:value>
+    </gnm:Attribute>
+    <gnm:Attribute>
+      <gnm:name>WorkbookView::show_vertical_scrollbar</gnm:name>
+      <gnm:value>TRUE</gnm:value>
+    </gnm:Attribute>
+    <gnm:Attribute>
+      <gnm:name>WorkbookView::show_notebook_tabs</gnm:name>
+      <gnm:value>TRUE</gnm:value>
+    </gnm:Attribute>
+    <gnm:Attribute>
+      <gnm:name>WorkbookView::do_auto_completion</gnm:name>
+      <gnm:value>TRUE</gnm:value>
+    </gnm:Attribute>
+    <gnm:Attribute>
+      <gnm:name>WorkbookView::is_protected</gnm:name>
+      <gnm:value>FALSE</gnm:value>
+    </gnm:Attribute>
+  </gnm:Attributes>
+  <office:document-meta xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:ooo="http://openoffice.org/2004/office" office:version="1.2">
+    <office:meta>
+      <dc:date>2015-10-19T19:53:06Z</dc:date>
+      <meta:creation-date>2015-10-19T18:39:16Z</meta:creation-date>
+    </office:meta>
+  </office:document-meta>
+  <gnm:Calculation ManualRecalc="0" EnableIteration="1" MaxIterations="100" IterationTolerance="0.001" FloatRadix="2" FloatDigits="53"/>
+  <gnm:SheetNameIndex>
+    <gnm:SheetName gnm:Cols="256" gnm:Rows="65536">slice.csv</gnm:SheetName>
+  </gnm:SheetNameIndex>
+  <gnm:Geometry Width="1366" Height="479"/>
+  <gnm:Sheets>
+    <gnm:Sheet DisplayFormulas="0" HideZero="0" HideGrid="0" HideColHeader="0" HideRowHeader="0" DisplayOutlines="1" OutlineSymbolsBelow="1" OutlineSymbolsRight="1" Visibility="GNM_SHEET_VISIBILITY_VISIBLE" GridColor="0:0:0">
+      <gnm:Name>slice.csv</gnm:Name>
+      <gnm:MaxCol>48</gnm:MaxCol>
+      <gnm:MaxRow>0</gnm:MaxRow>
+      <gnm:Zoom>1</gnm:Zoom>
+      <gnm:Names>
+        <gnm:Name>
+          <gnm:name>Print_Area</gnm:name>
+          <gnm:value>#REF!</gnm:value>
+          <gnm:position>A1</gnm:position>
+        </gnm:Name>
+        <gnm:Name>
+          <gnm:name>Sheet_Title</gnm:name>
+          <gnm:value>&quot;slice.csv&quot;</gnm:value>
+          <gnm:position>A1</gnm:position>
+        </gnm:Name>
+      </gnm:Names>
+      <gnm:PrintInformation>
+        <gnm:Margins>
+          <gnm:top Points="120" PrefUnit="mm"/>
+          <gnm:bottom Points="120" PrefUnit="mm"/>
+          <gnm:left Points="72" PrefUnit="mm"/>
+          <gnm:right Points="72" PrefUnit="mm"/>
+          <gnm:header Points="72" PrefUnit="mm"/>
+          <gnm:footer Points="72" PrefUnit="mm"/>
+        </gnm:Margins>
+        <gnm:Scale type="percentage" percentage="100"/>
+        <gnm:vcenter value="0"/>
+        <gnm:hcenter value="0"/>
+        <gnm:grid value="0"/>
+        <gnm:even_if_only_styles value="0"/>
+        <gnm:monochrome value="0"/>
+        <gnm:draft value="0"/>
+        <gnm:titles value="0"/>
+        <gnm:do_not_print value="0"/>
+        <gnm:print_range value="GNM_PRINT_ACTIVE_SHEET"/>
+        <gnm:order>d_then_r</gnm:order>
+        <gnm:orientation>portrait</gnm:orientation>
+        <gnm:Header Left="" Middle="&amp;[TAB]" Right=""/>
+        <gnm:Footer Left="" Middle="Page &amp;[PAGE]" Right=""/>
+        <gnm:paper>na_letter</gnm:paper>
+        <gnm:comments placement="GNM_PRINT_COMMENTS_IN_PLACE"/>
+        <gnm:errors PrintErrorsAs="GNM_PRINT_ERRORS_AS_DISPLAYED"/>
+      </gnm:PrintInformation>
+      <gnm:Styles>
+        <gnm:StyleRegion startCol="0" startRow="0" endCol="255" endRow="65535">
+          <gnm:Style HAlign="GNM_HALIGN_GENERAL" VAlign="GNM_VALIGN_BOTTOM" WrapText="0" ShrinkToFit="0" Rotation="0" Shade="0" Indent="0" Locked="1" Hidden="0" Fore="0:0:0" Back="FFFF:FFFF:FFFF" PatternColor="0:0:0" Format="General">
+            <gnm:Font Unit="10" Bold="0" Italic="0" Underline="0" StrikeThrough="0" Script="0">Sans</gnm:Font>
+          </gnm:Style>
+        </gnm:StyleRegion>
+      </gnm:Styles>
+      <gnm:Cols DefaultSizePts="48">
+        <gnm:ColInfo No="0" Unit="51"/>
+        <gnm:ColInfo No="2" Unit="48.75" Count="6"/>
+        <gnm:ColInfo No="8" Unit="54.75" Count="3"/>
+        <gnm:ColInfo No="11" Unit="48.75"/>
+        <gnm:ColInfo No="12" Unit="54.75" Count="10"/>
+        <gnm:ColInfo No="22" Unit="48.75"/>
+        <gnm:ColInfo No="24" Unit="48.75" Count="2"/>
+        <gnm:ColInfo No="26" Unit="57" Count="4"/>
+        <gnm:ColInfo No="30" Unit="63" Count="7"/>
+        <gnm:ColInfo No="37" Unit="57"/>
+        <gnm:ColInfo No="38" Unit="63" Count="5"/>
+        <gnm:ColInfo No="43" Unit="57" Count="6"/>
+      </gnm:Cols>
+      <gnm:Rows DefaultSizePts="12.75"/>
+      <gnm:Selections CursorCol="0" CursorRow="0">
+        <gnm:Selection startCol="0" startRow="0" endCol="255" endRow="0"/>
+      </gnm:Selections>
+      <gnm:Objects>
+        <gnm:SheetObjectGraph ObjectBound="A2:R25" ObjectOffset="0.279 0.706 0.932 0.294" Direction="17" Print="1">
+          <GogObject type="GogGraph">
+            <property name="height-pts">288.000000</property>
+            <property name="width-pts">915.000000</property>
+            <property name="theme-name">Default</property>
+            <property name="padding-pts">7.086614</property>
+            <property name="style" type="GogStyle">
+              <outline dash="none" auto-dash="1" width="0" color="0:0:0:FF" auto-color="1"/>
+              <fill type="none" auto-type="1" is-auto="1" auto-fore="1"/>
+            </property>
+            <property name="anchor">top-left</property>
+            <property name="alignment">fill</property>
+            <GogObject role="Chart">
+              <property name="ypos">0</property>
+              <property name="padding-pts">7.086614</property>
+              <property name="style" type="GogStyle">
+                <outline dash="solid" auto-dash="1" width="0" color="0:0:0:FF" auto-color="1"/>
+                <fill type="pattern" auto-type="1" is-auto="1" auto-fore="1">
+                  <pattern type="solid" fore="0:0:0:FF" back="FF:FF:FF:FF"/>
+                </fill>
+              </property>
+              <property name="id">1</property>
+              <GogObject role="Grid">
+                <property name="style" type="GogStyle">
+                  <outline dash="solid" auto-dash="1" width="1" color="84:82:84:FF" auto-color="1"/>
+                  <fill type="pattern" auto-type="1" is-auto="1" auto-fore="1">
+                    <pattern type="solid" fore="0:0:0:FF" back="D0:D0:D0:FF"/>
+                  </fill>
+                </property>
+                <property name="id">1</property>
+              </GogObject>
+              <GogObject role="X-Axis">
+                <property name="map-name">Linear</property>
+                <property name="style" type="GogStyle">
+                  <line dash="solid" auto-dash="1" width="0" color="0:0:0:FF" auto-color="1"/>
+                  <font color="0:0:0:FF" font="Sans 8" auto-scale="1"/>
+                  <text_layout/>
+                </property>
+                <property name="id">1</property>
+                <data/>
+              </GogObject>
+              <GogObject role="Y-Axis">
+                <property name="map-name">Linear</property>
+                <property name="style" type="GogStyle">
+                  <line dash="solid" auto-dash="1" width="0" color="0:0:0:FF" auto-color="1"/>
+                  <font color="0:0:0:FF" font="Sans 8" auto-scale="1"/>
+                  <text_layout/>
+                </property>
+                <property name="id">1</property>
+                <data/>
+              </GogObject>
+              <GogObject role="Plot" type="GogLinePlot">
+                <property name="default-style-has-markers">FALSE</property>
+                <property name="y-axis">1</property>
+                <property name="x-axis">1</property>
+                <property name="vary-style-by-element">FALSE</property>
+                <property name="id">1</property>
+                <GogObject role="Series">
+                  <property name="fill-type">y-origin</property>
+                  <property name="interpolation">linear</property>
+                  <property name="style" type="GogStyle">
+                    <line dash="solid" auto-dash="1" width="0" color="0:0:80:FF" auto-color="1"/>
+                    <marker auto-shape="1" shape="none" auto-outline="1" outline-color="0:0:0:FF" auto-fill="1" fill-color="FF:FF:FF:FF" size="5"/>
+                  </property>
+                  <property name="id">1</property>
+                  <data>
+                    <dimension id="1" type="GnmGODataVector">slice.csv!$A$1:$IV$1</dimension>
+                  </data>
+                </GogObject>
+              </GogObject>
+            </GogObject>
+          </GogObject>
+        </gnm:SheetObjectGraph>
+      </gnm:Objects>
+      <gnm:Cells>
+        <gnm:Cell Row="0" Col="0" ValueType="40">-5.6758600000000001</gnm:Cell>
+        <gnm:Cell Row="0" Col="1" ValueType="40">7.5968499999999999</gnm:Cell>
+        <gnm:Cell Row="0" Col="2" ValueType="40">20.872150000000001</gnm:Cell>
+        <gnm:Cell Row="0" Col="3" ValueType="40">34.155160000000002</gnm:Cell>
+        <gnm:Cell Row="0" Col="4" ValueType="40">47.450890000000001</gnm:Cell>
+        <gnm:Cell Row="0" Col="5" ValueType="40">60.764119999999998</gnm:Cell>
+        <gnm:Cell Row="0" Col="6" ValueType="40">74.099379999999996</gnm:Cell>
+        <gnm:Cell Row="0" Col="7" ValueType="40">87.460840000000005</gnm:Cell>
+        <gnm:Cell Row="0" Col="8" ValueType="40">100.85227</gnm:Cell>
+        <gnm:Cell Row="0" Col="9" ValueType="40">114.27696</gnm:Cell>
+        <gnm:Cell Row="0" Col="10" ValueType="40">127.73766999999999</gnm:Cell>
+        <gnm:Cell Row="0" Col="11" ValueType="40">141.23660000000001</gnm:Cell>
+        <gnm:Cell Row="0" Col="12" ValueType="40">154.77534</gnm:Cell>
+        <gnm:Cell Row="0" Col="13" ValueType="40">168.35486</gnm:Cell>
+        <gnm:Cell Row="0" Col="14" ValueType="40">181.97548</gnm:Cell>
+        <gnm:Cell Row="0" Col="15" ValueType="40">195.63686999999999</gnm:Cell>
+        <gnm:Cell Row="0" Col="16" ValueType="40">209.33807999999999</gnm:Cell>
+        <gnm:Cell Row="0" Col="17" ValueType="40">213.07749000000001</gnm:Cell>
+        <gnm:Cell Row="0" Col="18" ValueType="40">196.85292000000001</gnm:Cell>
+        <gnm:Cell Row="0" Col="19" ValueType="40">170.66158999999999</gnm:Cell>
+        <gnm:Cell Row="0" Col="20" ValueType="40">144.50021000000001</gnm:Cell>
+        <gnm:Cell Row="0" Col="21" ValueType="40">118.36503</gnm:Cell>
+        <gnm:Cell Row="0" Col="22" ValueType="40">92.251869999999997</gnm:Cell>
+        <gnm:Cell Row="0" Col="23" ValueType="40">66.156199999999998</gnm:Cell>
+        <gnm:Cell Row="0" Col="24" ValueType="40">40.073219999999999</gnm:Cell>
+        <gnm:Cell Row="0" Col="25" ValueType="40">13.99793</gnm:Cell>
+        <gnm:Cell Row="0" Col="26" ValueType="40">-12.07479</gnm:Cell>
+        <gnm:Cell Row="0" Col="27" ValueType="40">-38.150089999999999</gnm:Cell>
+        <gnm:Cell Row="0" Col="28" ValueType="40">-64.233109999999996</gnm:Cell>
+        <gnm:Cell Row="0" Col="29" ValueType="40">-90.328829999999996</gnm:Cell>
+        <gnm:Cell Row="0" Col="30" ValueType="40">-116.44206</gnm:Cell>
+        <gnm:Cell Row="0" Col="31" ValueType="40">-142.57732999999999</gnm:Cell>
+        <gnm:Cell Row="0" Col="32" ValueType="40">-168.73878999999999</gnm:Cell>
+        <gnm:Cell Row="0" Col="33" ValueType="40">-194.93022999999999</gnm:Cell>
+        <gnm:Cell Row="0" Col="34" ValueType="40">-211.15492</gnm:Cell>
+        <gnm:Cell Row="0" Col="35" ValueType="40">-207.41562999999999</gnm:Cell>
+        <gnm:Cell Row="0" Col="36" ValueType="40">-193.71456000000001</gnm:Cell>
+        <gnm:Cell Row="0" Col="37" ValueType="40">-180.05330000000001</gnm:Cell>
+        <gnm:Cell Row="0" Col="38" ValueType="40">-166.43281999999999</gnm:Cell>
+        <gnm:Cell Row="0" Col="39" ValueType="40">-152.85344000000001</gnm:Cell>
+        <gnm:Cell Row="0" Col="40" ValueType="40">-139.31483</gnm:Cell>
+        <gnm:Cell Row="0" Col="41" ValueType="40">-125.81604</gnm:Cell>
+        <gnm:Cell Row="0" Col="42" ValueType="40">-112.35545</gnm:Cell>
+        <gnm:Cell Row="0" Col="43" ValueType="40">-98.930869999999999</gnm:Cell>
+        <gnm:Cell Row="0" Col="44" ValueType="40">-85.539540000000002</gnm:Cell>
+        <gnm:Cell Row="0" Col="45" ValueType="40">-72.178160000000005</gnm:Cell>
+        <gnm:Cell Row="0" Col="46" ValueType="40">-58.842979999999997</gnm:Cell>
+        <gnm:Cell Row="0" Col="47" ValueType="40">-45.529809999999998</gnm:Cell>
+        <gnm:Cell Row="0" Col="48" ValueType="40">-32.23413</gnm:Cell>
+      </gnm:Cells>
+      <gnm:SheetLayout TopLeft="A1"/>
+      <gnm:Solver ModelType="0" ProblemType="0" MaxTime="60" MaxIter="1000" NonNeg="1" Discr="0" AutoScale="0" ProgramR="0"/>
+    </gnm:Sheet>
+  </gnm:Sheets>
+  <gnm:UIData SelectedTab="0"/>
+</gnm:Workbook>

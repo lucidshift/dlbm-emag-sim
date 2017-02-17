@@ -1,0 +1,202 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 59.50     21.79    21.79                             Collision
+ 27.12     31.72     9.93      303    32.77    32.77  Density
+  4.86     33.50     1.78      111    16.04    16.04  Visualize
+  4.62     35.19     1.69      101    16.73    16.73  Curl
+  2.43     36.08     0.89      101     8.81     8.81  GetFieldEnergy
+  1.01     36.45     0.37        1   370.01   370.01  Initialize
+  0.46     36.62     0.17      303     0.56     0.56  Stream
+  0.00     36.62     0.00      111     0.00     0.00  GetGraph
+  0.00     36.62     0.00      101     0.00     0.00  CollisionThreaded
+  0.00     36.62     0.00      101     0.00   125.55  Iterate
+  0.00     36.62     0.00       22     0.00     0.00  GenerateSourcePath
+  0.00     36.62     0.00        1     0.00     0.00  ConfigurePermeability
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+ 
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this 
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 0.03% of 36.62 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]     59.5   21.79    0.00                 Collision [1]
+-----------------------------------------------
+                                                 <spontaneous>
+[2]     40.5    0.00   14.83                 main [2]
+                0.00   12.68     101/101         Iterate [3]
+                1.78    0.00     111/111         Visualize [5]
+                0.37    0.00       1/1           Initialize [8]
+                0.00    0.00     111/111         GetGraph [10]
+-----------------------------------------------
+                0.00   12.68     101/101         main [2]
+[3]     34.6    0.00   12.68     101         Iterate [3]
+                9.93    0.00     303/303         Density [4]
+                1.69    0.00     101/101         Curl [6]
+                0.89    0.00     101/101         GetFieldEnergy [7]
+                0.17    0.00     303/303         Stream [9]
+                0.00    0.00     101/101         CollisionThreaded [11]
+-----------------------------------------------
+                9.93    0.00     303/303         Iterate [3]
+[4]     27.1    9.93    0.00     303         Density [4]
+-----------------------------------------------
+                1.78    0.00     111/111         main [2]
+[5]      4.9    1.78    0.00     111         Visualize [5]
+-----------------------------------------------
+                1.69    0.00     101/101         Iterate [3]
+[6]      4.6    1.69    0.00     101         Curl [6]
+-----------------------------------------------
+                0.89    0.00     101/101         Iterate [3]
+[7]      2.4    0.89    0.00     101         GetFieldEnergy [7]
+-----------------------------------------------
+                0.37    0.00       1/1           main [2]
+[8]      1.0    0.37    0.00       1         Initialize [8]
+                0.00    0.00      22/22          GenerateSourcePath [12]
+                0.00    0.00       1/1           ConfigurePermeability [13]
+-----------------------------------------------
+                0.17    0.00     303/303         Iterate [3]
+[9]      0.5    0.17    0.00     303         Stream [9]
+-----------------------------------------------
+                0.00    0.00     111/111         main [2]
+[10]     0.0    0.00    0.00     111         GetGraph [10]
+-----------------------------------------------
+                0.00    0.00     101/101         Iterate [3]
+[11]     0.0    0.00    0.00     101         CollisionThreaded [11]
+-----------------------------------------------
+                0.00    0.00      22/22          Initialize [8]
+[12]     0.0    0.00    0.00      22         GenerateSourcePath [12]
+-----------------------------------------------
+                0.00    0.00       1/1           Initialize [8]
+[13]     0.0    0.00    0.00       1         ConfigurePermeability [13]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+   [1] Collision               [4] Density                 [8] Initialize
+  [11] CollisionThreaded      [12] GenerateSourcePath      [3] Iterate
+  [13] ConfigurePermeability   [7] GetFieldEnergy          [9] Stream
+   [6] Curl                   [10] GetGraph                [5] Visualize

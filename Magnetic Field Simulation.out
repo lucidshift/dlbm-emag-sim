@@ -1,0 +1,12 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Derivation from Maxwell's Equations}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{E-Field Derivation}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{B-Field Derivation}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Navier-Stokes Flow Equations}{}% 5
+\BOOKMARK [1][-]{section.4}{Discrete Lattice Boltzmann Approach}{}% 6
+\BOOKMARK [2][-]{subsection.4.1}{Model Constraints}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.2}{Implementing Equations of Motion}{section.4}% 8
+\BOOKMARK [1][-]{section.5}{Results}{}% 9
+\BOOKMARK [2][-]{subsection.5.1}{Analytical Verification}{section.5}% 10
+\BOOKMARK [2][-]{subsection.5.2}{Simulation}{section.5}% 11
+\BOOKMARK [1][-]{section.6}{Ferroic Material Model}{}% 12
