@@ -10,9 +10,9 @@
 
 #define pi M_PI
 #define MPERM (4 * pi * 0.0000001)
-#define XDIM 70
-#define YDIM 70
-#define ZDIM 110
+#define XDIM 75
+#define YDIM 75
+#define ZDIM 170
 #define velCount 7
 #define u0 MPERM
 #define u  MPERM * 3119		//Technically this is relative permeability when u0 is anything other than 4pi * 10^-7 
@@ -224,6 +224,17 @@ void Initialize(){
 	EDeltaPointer = 0;
 	EDeltaMax = 0;
 
+	//Initialize Force arrays
+    for (int x=0;x<(XDIM);x++){
+      	for (int y=0;y<(YDIM);y++){
+			for(int z=0; z<(ZDIM); z++){
+
+				Force[x][y][z][0] = 0;
+				Force[x][y][z][1] = 0;
+				Force[x][y][z][2] = 0;
+			}
+		}
+  	}
 
 	//System variable setup
 	iterationCount = 0;
@@ -941,8 +952,8 @@ void CalcForce(){
 	ForceVsPosition[GlobalXYZ[2]][2] = forceTemp[2];
 	ZForceDisplay[GlobalXYZ[2]] = forceTemp[2];
 
-	printf("UmagTotal=%5.10f\n", UmagTotal);
-	printf("ForceTotal=(%5.10f, %5.10f, %5.10f)\n", forceTemp[0], forceTemp[1], forceTemp[2]);
+	printf("UmagTotal=%5.15f\n", UmagTotal);
+	printf("ForceTotal=(%5.15f, %5.15f, %5.15f)\n", forceTemp[0], forceTemp[1], forceTemp[2]);
 }
 
 void CollisionThreaded(){
@@ -1163,7 +1174,7 @@ int main(){
 void NetForceSimulation(){
 
 	//Setup
-	int startPos = 49;	//Midpoint of the projectile
+	int startPos = 12;	//Midpoint of the projectile
 	int endPos = 0;		//Set later
 	int length = 20;
 	int radius = 4;
@@ -1174,7 +1185,7 @@ void NetForceSimulation(){
 	GlobalXYZ[2] = startPos;
 
 	Initialize();
-	endPos = coilMidpoint + 5;
+	endPos = 150; //coilMidpoint + 5;
 
 	for(int i=startPos; i<=endPos; i++){
 
