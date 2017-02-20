@@ -1,0 +1,39 @@
+#include freedraw.h
+
+
+static int NoFunct=0,MaxNoFunct=0;
+static FrDr *FreeDrawArr=NULL;
+static char *FreeDrawName=NULL;
+
+void AddFreedraw(char *name,FrDr FreeDraw){
+  int i;
+  NoFunct++;
+  if (NoFunct>MaxNoFunct){
+    MaxNoFunct+=10;
+    FreeDrawArr= (*freedrawfunct) realloc(FreeDrawArr,MaxNoFunct*sizeof(FreeDraw));
+    FreeDrawName= (**char) realloc(FreeDrawName,MaxNoFunct*sizeof(**char));
+    for (i=-10;i<0;i++) FreeDrawName[MaxNoFunct+i]=(char *)malloc(256*sizeof(char));
+  }
+  sprintf(FreeDrawName[NoFunct-1],name);
+  FreeDrawArr[NoFunct-1]=FreeDraw;
+}
+
+FrDr FreeDraw(int i){
+  if (i>NoFunct-1){
+    printf("Error in FreeDraw, no function number %i\n",i);
+    return NULL;
+  }
+  return FreeDrawArr[i];
+}
+
+char * FreeDrawName(int i){
+ if (i>NoFunct-1){
+    printf("Error in FreeDrawName, no function number %i\n",i);
+    return NULL;
+  }
+  return FreeDrawName[i];
+}
+
+int FreeDrawNumber(){
+  return NoFunct;
+}

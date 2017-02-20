@@ -1,0 +1,226 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=latex 2015.4.29)  14 JAN 2016 16:57
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**\nonstopmode\input Documentation.tex
+(./Documentation.tex (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: dvips.def on input line 91.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/dvips.def
+File: dvips.def 2014/04/23 v3.0j Driver-dependant file (DPC,SPQR)
+))
+(./Documentation.aux)
+\openout1 = `Documentation.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 12.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 12.
+ [1
+
+] (./Documentation.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 5.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 5.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 5.
+)
+\tf@toc=\write3
+\openout3 = `Documentation.toc'.
+
+ [2] [3] [4]
+
+LaTeX Warning: Reference `1d_diff_LB' on page 5 undefined on input line 174.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 175.
+[5] [6] [7] [8] [9] [10] [11]
+File: screen1.eps Graphic file (type eps)
+ <screen1.eps> [12]
+Underfull \hbox (badness 10000) in paragraph at lines 586--586
+[]\OT1/cmtt/m/n/12 DefineGraphN[]R(char *Name,double *gd,int
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 588--588
+[]\OT1/cmtt/m/n/12 DefineGraphN[]RxR(char *Name,double *gd,int
+ []
+
+
+Underfull \hbox (badness 5345) in paragraph at lines 589--590
+[]\OT1/cmr/m/n/12 One di-men-sional ar-rays of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 590--590
+[]\OT1/cmtt/m/n/12 DefineGraphN[]RxRp(char *Name,double
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 594--594
+[]\OT1/cmtt/m/n/12 DefineGraphNxN[]R(char *Name,double *gd, int
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 596--596
+[]\OT1/cmtt/m/n/12 DefineGraphNxN[]RxR(char *Name,double *gd,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 599--599
+[]\OT1/cmtt/m/n/12 DefineGraphNxN[]RxRxRt(char *Name,double
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 603--603
+[]\OT1/cmtt/m/n/12 DefineGraphContour3d(char *Name,Contour
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 603--603
+\OT1/cmtt/m/n/12 **gd, int *dim1,int *dim2,int *dim3,int
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 618--620
+[]\OT1/cmr/m/n/12 Set this be-fore you call
+ []
+
+
+Overfull \hbox (1.66017pt too wide) in paragraph at lines 582--622
+ [] 
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 662.
+
+Underfull \hbox (badness 10000) in paragraph at lines 685--688
+\OT1/cmr/m/n/10.95 max-i-mum length maxlen.
+ []
+
+
+Underfull \hbox (badness 4391) in paragraph at lines 685--688
+\OT1/cmr/m/it/10.95 There is a bug that still
+ []
+
+
+Underfull \hbox (badness 1292) in paragraph at lines 685--688
+\OT1/cmr/m/it/10.95 al-lows you to write strings
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 734--734
+[]\OT1/cmtt/m/n/12 AddFreedraw(char *name, FrDr
+ []
+
+
+Underfull \hbox (badness 2277) in paragraph at lines 734--735
+\OT1/cmr/m/n/12 fined your-self of type \OT1/cmtt/m/n/12 void Name(int
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 736--736
+[]\OT1/cmtt/m/n/12 mydrawline(int color, int x1, int
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 737--737
+[]\OT1/cmtt/m/n/12 mypolygon(int color, XPoint
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 738--738
+[]\OT1/cmtt/m/n/12 mypolygon[]line(int col, int
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 739--739
+[]\OT1/cmtt/m/n/12 mylinepolygon(int col, XPoints
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 740--740
+[]\OT1/cmtt/m/n/12 mycircle(int col, int x, int y,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 741--741
+[]\OT1/cmtt/m/n/12 myfilledcircle(int col, int x, int
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 742--742
+[]\OT1/cmtt/m/n/12 mytext(int col, int x, int y, char
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 743--743
+[]\OT1/cmtt/m/n/12 myselectfont(int font, char
+ []
+
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 743.
+
+Overfull \hbox (6.11995pt too wide) in paragraph at lines 730--746
+[][] 
+ []
+
+
+Overfull \hbox (91.01889pt too wide) in paragraph at lines 759--764
+\OT1/cmr/m/n/12 First you need to ob-tain the \OT1/cmtt/m/n/12 graph.tar.gz \OT
+1/cmr/m/n/12 file ei-ther from the web at https://www.ndsu.edu/pubweb/ car-
+ []
+
+[13] [14] [15] [16] [17] [18] (./Documentation.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 488 strings out of 495021
+ 5720 string characters out of 6181350
+ 77118 words of memory out of 5000000
+ 3758 multiletter control sequences out of 15000+600000
+ 10922 words of font info for 39 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 23i,10n,19p,510b,320s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on Documentation.dvi (18 pages, 49596 bytes).

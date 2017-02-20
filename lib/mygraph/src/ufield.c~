@@ -1,0 +1,77 @@
+/***************************************************************************\
+graph library
+Copyright (C) 1992-2003  Alexander Wagner
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+e-mail: Alexander.Wagner@ndsu.nodak.edu
+\***************************************************************************/
+
+#include <math.h>
+#include "mydraw_2d.h"
+#include "ufield.h"
+
+void ufield(int anzy,int xmin, int xmax, int ymin, int ymax,
+	    double *u,double scale,int xscale,
+	    int xofs, int yofs, int xsize, int ysize, 
+	    int veccol1, int veccol2, int vecstep, double vecangle, double vecwidth)
+{
+  double si,co,fac;
+  int i,j,x,y,x1,y1,nox,noy;
+  XPoint pol[7];
+
+
+  nox=xmax-xmin+2; /* +2 to make all arrows visible */
+  noy=ymax-ymin+2;
+  si=sin(vecangle);
+  co=cos(vecangle);
+  if (scale>0)
+    {
+      for (i=xmin;i<xmax;i+=vecstep)
+	for (j=ymin;j<ymax;j+=vecstep)
+	  {
+	    fac=xscale*vecstep/(sqrt(sqrt(pow(u[2*(i*anzy+j)],2)+pow(u[2*(i*anzy+j)+1],2))*scale));
+	    x=xofs+(i-xmin+1)*xsize/(nox-1);
+	    y=yofs+ysize-(j-ymin+1)*ysize/(noy-1);
+	    x1=u[2*(i*anzy+j)]*fac;
+	    y1=-u[2*(i*anzy+j)+1]*fac;
+
+	    pol[0].x=x-vecwidth*y1;
+	    pol[0].y=y+vecwidth*x1;
+
+	    pol[1].x=pol[0].x+0.75*x1;
+	    pol[1].y=pol[0].y+0.75*y1;
+
+	    pol[2].x=pol[1].x-2*vecwidth*y1-vecwidth*x1;
+	    pol[2].y=pol[1].y+2*vecwidth*x1-vecwidth*y1;
+
+	    pol[3].x=x+x1;
+	    pol[3].y=y+y1;
+
+
+	    pol[6].x=x+vecwidth*y1;
+	    pol[6].y=y-vecwidth*x1;
+
+	    pol[5].x=pol[6].x+0.75*x1;
+	    pol[5].y=pol[6].y+0.75*y1;
+
+	    pol[4].x=pol[5].x+2*vecwidth*y1-vecwidth*x1;
+	    pol[4].y=pol[5].y-2*vecwidth*x1-vecwidth*y1;
+
+	    mypolygon_line(veccol1,veccol2,&pol[0],7);
+
+	  }
+    }
+}
