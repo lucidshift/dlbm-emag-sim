@@ -916,7 +916,7 @@ void CalcForce(){
 			for(int z=0; z<ZDIM; z++){
 
 				if(mu[x][y][z] != u0){
-					Umag[x][y][z] = -((Hmag[x][y][z][0]*B[x][y][z][0]) + (Hmag[x][y][z][1]*B[x][y][z][1]) + (Hmag[x][y][z][2]*B[x][y][z][2]));
+					Umag[x][y][z] = ((Hmag[x][y][z][0]*B[x][y][z][0]) + (Hmag[x][y][z][1]*B[x][y][z][1]) + (Hmag[x][y][z][2]*B[x][y][z][2]));
 					uTemp += Umag[x][y][z];
 				}
 			}
