@@ -717,11 +717,11 @@ void twodensityfieldX(int nox, int noy,
 	    xp[3].y=y;
 	    d1=colx*(f1[i*noy+j]-z1min)/(z1max-z1min);
 	    d2=coly*(f2[i*noy+j]-z2min)/(z2max-z2min);
-	    if (isnormal(d1)){
+	    if (isnormal((float) d1)){
 	    if (d1<0) d1=0;
 	    else if (d1>colx-1) d1=colx-1;
 	    } else d1=0;
-	    if (isnormal(d2)){
+	    if (isnormal((float) d2)){
 	    if (d2<0) d2=0;
 	    else if (d2>coly-1) d2=coly-1;
 	    } else d2=0;
