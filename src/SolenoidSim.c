@@ -10,8 +10,8 @@
 
 #define pi M_PI
 #define MPERM (4 * pi * 0.0000001)
-#define XDIM 75
-#define YDIM 75
+#define XDIM 80
+#define YDIM 80
 #define ZDIM 180
 #define velCount 7
 #define u0 MPERM
@@ -162,7 +162,7 @@ void Initialize(){
 
 			coilMidpoint = ((123 - 57) / 2) + 57;	//Change this when you change the coil dimensions!
 			printf("(%d,%d)\n",z,r);
-			GenerateSourcePath(50, 50, z, r, 3);
+			GenerateSourcePath(40, 40, z, r, 3);
 		//}
 	}
 
@@ -272,8 +272,8 @@ void GenerateSourcePath(int cx, int cy, int cz, int radius, int thickness){
 
 void ConfigurePermeability(double a){
 
-	int cx = 25;
-	int cy = 25;
+	int cx = 40;
+	int cy = 40;
 	//int cz = 25;
 	int radius = 9;
 
@@ -322,8 +322,8 @@ void ConfigureFreeSpace(){
 void ConfigureProjectile(int midpoint, int length, int radius, int permeability){
 
 
-	int cx = 25;
-	int cy = 25;
+	int cx = 40;
+	int cy = 40;
 	//int cz = 25;
 
 	int dx;
@@ -1180,8 +1180,8 @@ void NetForceSimulation(){
 	int radius = 4;
 
 
-	GlobalXYZ[0] = 50;
-	GlobalXYZ[1] = 50;
+	GlobalXYZ[0] = 40;
+	GlobalXYZ[1] = 40;
 	GlobalXYZ[2] = startPos;
 
 	Initialize();
