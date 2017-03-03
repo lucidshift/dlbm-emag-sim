@@ -12,7 +12,7 @@
 #define MPERM (4 * pi * 0.0000001)
 #define XDIM 75
 #define YDIM 75
-#define ZDIM 170
+#define ZDIM 180
 #define velCount 7
 #define u0 MPERM
 #define u  MPERM * 3119		//Technically this is relative permeability when u0 is anything other than 4pi * 10^-7 
@@ -156,13 +156,13 @@ void Initialize(){
 	ConfigureFreeSpace();
 
 	//Coil Setup - This section needs work.
-	for(int z=17; z<(83); z=z+3){		//Fixed number of coils!!
+	for(int z=57; z<(123); z=z+3){		//Fixed number of coils!!
 		int r=11;
 		//for(int r=11; r<25; r=r+3){
 
-			coilMidpoint = ((83 - 17) / 2) + 17;	//Change this when you change the coil dimensions!
+			coilMidpoint = ((123 - 57) / 2) + 57;	//Change this when you change the coil dimensions!
 			printf("(%d,%d)\n",z,r);
-			GenerateSourcePath(25, 25, z, r, 3);
+			GenerateSourcePath(50, 50, z, r, 3);
 		//}
 	}
 
@@ -1180,12 +1180,12 @@ void NetForceSimulation(){
 	int radius = 4;
 
 
-	GlobalXYZ[0] = 25;
-	GlobalXYZ[1] = 25;
+	GlobalXYZ[0] = 50;
+	GlobalXYZ[1] = 50;
 	GlobalXYZ[2] = startPos;
 
 	Initialize();
-	endPos = 150; //coilMidpoint + 5;
+	endPos = 168; //coilMidpoint + 5;
 
 	for(int i=startPos; i<=endPos; i++){
 
@@ -1202,7 +1202,7 @@ void NetForceSimulation(){
 	      		GetGraph(Simulation);
 	      		DrawGraphs();
 	      		if(changePermeability){
-	      			ConfigurePermeability(uCenter);
+	      			ConfigurePermeability(uCenter); //TODO: Remove/update this feature, it's broken if used.
 	      			changePermeability = 0;
 	      		}		
 
