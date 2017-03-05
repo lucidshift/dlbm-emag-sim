@@ -10,9 +10,9 @@
 
 #define pi M_PI
 #define MPERM (4 * pi * 0.0000001)
-#define XDIM 75
-#define YDIM 75
-#define ZDIM 170
+#define XDIM 80
+#define YDIM 80
+#define ZDIM 180
 #define velCount 7
 #define u0 MPERM
 #define u  MPERM * 3119		//Technically this is relative permeability when u0 is anything other than 4pi * 10^-7 
@@ -156,13 +156,13 @@ void Initialize(){
 	ConfigureFreeSpace();
 
 	//Coil Setup - This section needs work.
-	for(int z=17; z<(83); z=z+3){		//Fixed number of coils!!
+	for(int z=57; z<(123); z=z+3){		//Fixed number of coils!!
 		int r=11;
 		//for(int r=11; r<25; r=r+3){
 
-			coilMidpoint = ((83 - 17) / 2) + 17;	//Change this when you change the coil dimensions!
+			coilMidpoint = ((123 - 57) / 2) + 57;	//Change this when you change the coil dimensions!
 			printf("(%d,%d)\n",z,r);
-			GenerateSourcePath(25, 25, z, r, 3);
+			GenerateSourcePath(40, 40, z, r, 3);
 		//}
 	}
 
@@ -272,8 +272,8 @@ void GenerateSourcePath(int cx, int cy, int cz, int radius, int thickness){
 
 void ConfigurePermeability(double a){
 
-	int cx = 25;
-	int cy = 25;
+	int cx = 40;
+	int cy = 40;
 	//int cz = 25;
 	int radius = 9;
 
@@ -322,8 +322,8 @@ void ConfigureFreeSpace(){
 void ConfigureProjectile(int midpoint, int length, int radius, int permeability){
 
 
-	int cx = 25;
-	int cy = 25;
+	int cx = 40;
+	int cy = 40;
 	//int cz = 25;
 
 	int dx;
@@ -916,7 +916,7 @@ void CalcForce(){
 			for(int z=0; z<ZDIM; z++){
 
 				if(mu[x][y][z] != u0){
-					Umag[x][y][z] = -((Hmag[x][y][z][0]*B[x][y][z][0]) + (Hmag[x][y][z][1]*B[x][y][z][1]) + (Hmag[x][y][z][2]*B[x][y][z][2]));
+					Umag[x][y][z] = ((Hmag[x][y][z][0]*B[x][y][z][0]) + (Hmag[x][y][z][1]*B[x][y][z][1]) + (Hmag[x][y][z][2]*B[x][y][z][2]));
 					uTemp += Umag[x][y][z];
 				}
 			}
@@ -1180,12 +1180,12 @@ void NetForceSimulation(){
 	int radius = 4;
 
 
-	GlobalXYZ[0] = 25;
-	GlobalXYZ[1] = 25;
+	GlobalXYZ[0] = 40;
+	GlobalXYZ[1] = 40;
 	GlobalXYZ[2] = startPos;
 
 	Initialize();
-	endPos = 150; //coilMidpoint + 5;
+	endPos = 168; //coilMidpoint + 5;
 
 	for(int i=startPos; i<=endPos; i++){
 
@@ -1202,7 +1202,7 @@ void NetForceSimulation(){
 	      		GetGraph(Simulation);
 	      		DrawGraphs();
 	      		if(changePermeability){
-	      			ConfigurePermeability(uCenter);
+	      			ConfigurePermeability(uCenter); //TODO: Remove/update this feature, it's broken if used.
 	      			changePermeability = 0;
 	      		}		
 

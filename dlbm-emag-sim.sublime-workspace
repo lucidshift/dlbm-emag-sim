@@ -52,6 +52,7 @@
 	],
 	"file_history":
 	[
+		"/home/chad/projects/dlbm-emag-sim/src/D3Q7.c",
 		"/home/chad/projects/dlbm-emag-sim/Makefile",
 		"/home/chad/Documents/copy-paste.sh",
 		"/home/chad/projects/dlbm-emag-sim/.gitignore",
@@ -127,8 +128,13 @@
 						"selection":
 						[
 							[
+<<<<<<< HEAD
 								445,
 								445
+=======
+								8775,
+								8775
+>>>>>>> af881eb9ff68c11ea790ba904a46529ea4aa190c
 							]
 						],
 						"settings":
@@ -137,7 +143,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 6480.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -223,7 +229,11 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
+<<<<<<< HEAD
 	"side_bar_width": 273.0,
+=======
+	"side_bar_width": 340.0,
+>>>>>>> af881eb9ff68c11ea790ba904a46529ea4aa190c
 	"status_bar_visible": true,
 	"template_settings":
 	{

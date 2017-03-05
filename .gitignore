@@ -3,3 +3,5 @@
 Makefile~
 *.sublime-project
 *.sublime-workspace
+output
+
