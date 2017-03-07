@@ -443,7 +443,7 @@ void Stream(int s){
 	//Velocity 5
 	for(int x=0; x<XDIM; x++){
 		for(int y=0; y<YDIM; y++){
-			frontBuffer[s][5][x][y] = A[s][5][x][y][0];
+			frontBuffer[s][5][x][y] = A[s][5][x][y][ZDIM-1];
 		}
 	}
 	memmove(&A[s][5][0][0][1], &A[s][5][0][0][0], (sizeof(double)*(XDIM)*(YDIM)*(ZDIM-1)));
@@ -451,7 +451,7 @@ void Stream(int s){
 	//Velocity 6
 	for(int x=0; x<XDIM; x++){
 		for(int y=0; y<YDIM; y++){
-			backBuffer[s][5][x][y] = A[s][5][x][y][ZDIM-1];
+			backBuffer[s][6][x][y] = A[s][6][x][y][0];
 		}
 	}
 	memmove(&A[s][6][0][0][0], &A[s][6][0][0][1], (sizeof(double)*(XDIM)*(YDIM)*(ZDIM-1)));	
