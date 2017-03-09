@@ -11,7 +11,8 @@
 			"file": "src/SolenoidSim.c",
 			"settings":
 			{
-				"buffer_size": 31251,
+				"buffer_size": 31309,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -52,7 +53,7 @@
 	],
 	"file_history":
 	[
-		"/home/chad/projects/dlbm-emag-sim/src/D3Q7.c",
+		"/home/chad/projects/dlbm-emag-sim/-5.849E12 Max.eps",
 		"/home/chad/projects/dlbm-emag-sim/Makefile",
 		"/home/chad/Documents/copy-paste.sh",
 		"/home/chad/projects/dlbm-emag-sim/.gitignore",
@@ -121,20 +122,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 31251,
+						"buffer_size": 31309,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-<<<<<<< HEAD
-								445,
-								445
-=======
-								8775,
-								8775
->>>>>>> af881eb9ff68c11ea790ba904a46529ea4aa190c
+								5046,
+								5046
 							]
 						],
 						"settings":
@@ -143,7 +139,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 6480.0,
+						"translation.y": 2340.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -229,11 +225,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-<<<<<<< HEAD
-	"side_bar_width": 273.0,
-=======
-	"side_bar_width": 340.0,
->>>>>>> af881eb9ff68c11ea790ba904a46529ea4aa190c
+	"side_bar_width": 244.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
