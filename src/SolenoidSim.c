@@ -121,6 +121,7 @@ int reset=0;
 int repeat=20;
 int drawCount=0;
 int simExit = 0;
+int netForceSim = 0;
 
 
 //Function Declaration
@@ -178,37 +179,61 @@ void Initialize(){
 		}
 	}	
 
-	//Buffer Initializations
-	for(int s=0; s<3; s++){
-		for(int x=0; x<(XDIM); x++){
-			for(int y=0; y<(YDIM); y++){
-				for(int z=0; z<(ZDIM); z++){
-					for(int i=0; i<velCount; i++){
+	if(netForceSim == 0){	
+		//Buffer Initializations
+		for(int s=0; s<3; s++){
+			for(int x=0; x<(XDIM); x++){
+				for(int y=0; y<(YDIM); y++){
+					for(int z=0; z<(ZDIM); z++){
+						for(int i=0; i<velCount; i++){
 
-						A[s][i][x][y][z] = 0; //velDist[i] + Source[i][x][y];
+							A[s][i][x][y][z] = 0; //velDist[i] + Source[i][x][y];
 
-						leftBuffer[s][i][y][z] = 0; 	//Velocity 1
-						rightBuffer[s][i][y][z] = 0;	//Velocity 2
-						topBuffer[s][i][x][z] = 0; 	//Velocity 3
-						bottomBuffer[s][i][x][z] = 0;	//Velocity 4
-						frontBuffer[s][i][x][y] = 0; 	//Velocity 5
-						backBuffer[s][i][x][y] = 0;	//Velocity 6					
+							leftBuffer[s][i][y][z] = 0; 	//Velocity 1
+							rightBuffer[s][i][y][z] = 0;	//Velocity 2
+							topBuffer[s][i][x][z] = 0; 		//Velocity 3
+							bottomBuffer[s][i][x][z] = 0;	//Velocity 4
+							frontBuffer[s][i][x][y] = 0; 	//Velocity 5
+							backBuffer[s][i][x][y] = 0;		//Velocity 6					
+						}
 					}
 				}
-			}
+			}	
 		}	
-	}	
 
-	//Density Initialization
-	for(int s=0; s<3; s++){
-	    for (int x=0;x<(XDIM);x++){
-	      	for (int y=0;y<(YDIM);y++){
-				for(int z=0; z<(ZDIM); z++){
-			      		rho[s][x][y][z] = 0;
+		//Density Initialization
+		for(int s=0; s<3; s++){
+		    for (int x=0;x<(XDIM);x++){
+		      	for (int y=0;y<(YDIM);y++){
+					for(int z=0; z<(ZDIM); z++){
+				      		rho[s][x][y][z] = 0;
+					}
 				}
-			}
-	  	}
-  	}
+		  	}
+		}
+	}
+
+		for(int s=0; s<3; s++){
+			for(int x=0; x<(XDIM); x++){
+				for(int y=0; y<(YDIM); y++){
+					for(int z=0; z<(ZDIM); z++){
+
+						rhomag[s][x][y][z] = 0;
+						for(int i=0; i<velCount; i++){
+
+							Amag[s][i][x][y][z] = 0; //velDist[i] + Source[i][x][y];
+
+							leftBuffermag[s][i][y][z] = 0; 	//Velocity 1
+							rightBuffermag[s][i][y][z] = 0;	//Velocity 2
+							topBuffermag[s][i][x][z] = 0; 		//Velocity 3
+							bottomBuffermag[s][i][x][z] = 0;	//Velocity 4
+							frontBuffermag[s][i][x][y] = 0; 	//Velocity 5
+							backBuffermag[s][i][x][y] = 0;		//Velocity 6					
+						}
+					}
+				}
+			}	
+		}
 
   	//Graph Initialization
 	for(int x=0; x<(XDIM); x++){
@@ -760,6 +785,15 @@ int SolutionConvergence(){
 
 	double energyDeltaTemp = Energy[iterationCount] - Energy[iterationCount - 1];
 
+	if(iterationCount < 19)
+	{
+		return 0; //Too Soon :)
+	} 
+	else if(netForceSim == 1)
+	{
+		return 1;
+	}
+
 	if(iterationCount < SIZEX){
 		EnergyDelta[iterationCount] = energyDeltaTemp;
 	}
@@ -1216,6 +1250,7 @@ void NetForceSimulation(){
 		    drawCount++;
 	  	}
 
+	  	netForceSim = 1; //Set after first iteration.
 	  	printf("i=%d\n",i);
 	}
 
