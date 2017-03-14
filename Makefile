@@ -37,6 +37,9 @@ mygraph_install:
 mygraph_clean:
 	cd lib/mygraph/src/ && $(MAKE) clean
 
+d3q7_sim:
+	gcc -O3 -Wall -I include -I lib/mygraph/include -L lib/libgraph src/d3q7_main.c -std=gnu99 -lgraph -lm -lX11 -o output/d3q7_sim -lpthread
+
 .PHONY: all
 all: generic
 	echo "Done!"
