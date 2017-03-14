@@ -2,25 +2,58 @@
 #define D3Q7_H
 
 #include <stdint.h>
+#include <vector>
 
+static const int T = 1;
+static const int velCount = 7;
+static const std::vector<double> velDist = {0.25,0.125,0.125,0.125,0.125,0.125,0.125};	
 
-void d3q7(int xDim, int yDim, int zDim);
+class d3q7
+{
 
-bool iterate();
+public:
 
-bool loadSource(double* source);
+	typedef std::vector< std::vector<double> > DensityField2D;
+	typedef std::vector< std::vector< std::vector<double> > > DensityVectorField2D;
+	typedef std::vector< std::vector< std::vector<double> > > DensityField3D;
+	typedef std::vector< std::vector< std::vector< std::vector<double> > > > DensityVectorField3D;
 
-double* getArray();
+	d3q7(int xDim, int yDim, int zDim);
 
-double* getSlice(int zDimSlice);
+	~d3q7();
 
-//"Private" members
+	bool iterate();
 
-void collision();
+	bool loadSource(DensityField3D& inputSource);
 
-void stream();
+	DensityField3D * getArray();
 
-void density();
+	DensityField2D * getSlice(int zDimSlice);
 
+private:
+
+	int xDim;
+	int yDim;
+	int zDim;
+
+	DensityField3D rho;
+	DensityVectorField3D rhoVector;
+	DensityField2D rhoDisplay;
+	DensityField3D source;
+
+	DensityVectorField2D leftBuffer; 		//Velocity 1
+	DensityVectorField2D rightBuffer;		//Velocity 2
+	DensityVectorField2D topBuffer; 		//Velocity 3
+	DensityVectorField2D bottomBuffer;	    //Velocity 4
+	DensityVectorField2D frontBuffer; 	    //Velocity 5
+	DensityVectorField2D backBuffer;		//Velocity 6
+
+	void collision();
+
+	void stream();
+
+	void density();
+
+};
 
 #endif

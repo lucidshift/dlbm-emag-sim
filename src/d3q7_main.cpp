@@ -6,7 +6,7 @@
 #include <string.h>
 #include <unistd.h>
 
-#include <d3q7.h>
+#include "d3q7.h"
 
 int iterationCount = 0;
 int cpuCount=0;
@@ -20,7 +20,8 @@ struct timespec sDelay;
 clock_t timeValue;
 struct time t;
 
-double rhoDisplay[50][50];
+d3q7::DensityField2D rhoDisplay;
+void * rhoDisplayPointer;
 int sliceLoc = 33;
 
 void deltaTime(){
@@ -57,7 +58,8 @@ int main(){
   	EndMenu();
 
   	//Simulation initialization
-	double sourceTemp[xDim][yDim][zDim];
+	d3q7::DensityField3D sourceTemp;
+	sourceTemp.reserve(sizeof(double)*xDim*yDim*zDim);
 	for(int z=0; z<zDim; z++){
 		sourceTemp[17][17][z] = 1;
 		sourceTemp[34][17][z] = -1;
@@ -65,8 +67,10 @@ int main(){
 		sourceTemp[34][34][z] = 1;	
 	}
 
-	new d3q7 simulation(xDim, yDim, zDim);
-	simulation.loadSource(&sourceTemp);
+	d3q7 simulation = d3q7(xDim, yDim, zDim);
+	simulation.loadSource(sourceTemp);
+
+	//rhoDisplayTemp[xDim][yDim];
 
 	cpuCount = sysconf(_SC_NPROCESSORS_ONLN);
 	printf("Number of CPU cores availible = %d\n", cpuCount);
@@ -75,7 +79,7 @@ int main(){
   		if(drawCount>repeat){
       		Events(1);
 
-      		rhoDisplay = *simulation.getSlice();
+      		//rhoDisplay* = simulation.getSlice();
       		DrawGraphs();		
       		drawCount = 0;
   		}
