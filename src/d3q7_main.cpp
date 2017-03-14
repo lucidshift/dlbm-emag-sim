@@ -1,10 +1,13 @@
 #include <math.h>
 #include <time.h>
-#include <mygraph.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
+
+extern "C" {
+	#include <mygraph.h>
+}
 
 #include "d3q7.h"
 
@@ -21,6 +24,7 @@ clock_t timeValue;
 struct time t;
 
 d3q7::DensityField2D rhoDisplay;
+double rhoDisplayArray[50][50];
 void * rhoDisplayPointer;
 int sliceLoc = 33;
 
@@ -39,13 +43,14 @@ void deltaTime(){
 
 //-----Main Routines-----
 int main(){
+	printf("Main startup.\n");
   	int done=0;
   	int cont=0;
   	int reset=0;
   	int repeat=100;
   	int drawCount=0;
 
-	DefineGraphNxN_R("XY Density",&rhoDisplay[0][0],&xDim,&yDim,NULL);  		
+	DefineGraphNxN_R("XY Density",&rhoDisplayArray[0][0],&xDim,&yDim,NULL);  		
 
 	StartMenu("Start",1);
     DefineBool("Run Simulation",&cont);
@@ -58,6 +63,7 @@ int main(){
   	EndMenu();
 
   	//Simulation initialization
+  	printf("Simulation setup.\n");
 	d3q7::DensityField3D sourceTemp;
 	sourceTemp.reserve(sizeof(double)*xDim*yDim*zDim);
 	for(int z=0; z<zDim; z++){
@@ -75,6 +81,7 @@ int main(){
 	cpuCount = sysconf(_SC_NPROCESSORS_ONLN);
 	printf("Number of CPU cores availible = %d\n", cpuCount);
 
+	printf("Main loop.\n");
   	while (!done){
   		if(drawCount>repeat){
       		Events(1);
