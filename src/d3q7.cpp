@@ -9,7 +9,7 @@ d3q7::d3q7(int xDim, int yDim, int zDim) :
 	zDim(zDim)
 {
 
-	rho.reserve(sizeof(double)*xDim*yDim*zDim);
+/*	rho.reserve(sizeof(double)*xDim*yDim*zDim);
 	rhoVector.reserve(sizeof(double)*velCount*xDim*yDim*zDim);
 	rhoDisplay.reserve(sizeof(double)*yDim*zDim);
 	source.reserve(sizeof(double)*xDim*yDim*zDim);
@@ -19,7 +19,27 @@ d3q7::d3q7(int xDim, int yDim, int zDim) :
 	topBuffer.reserve(sizeof(double)*xDim*zDim); 		
 	bottomBuffer.reserve(sizeof(double)*xDim*zDim);	    
 	frontBuffer.reserve(sizeof(double)*xDim*yDim); 	    
-	backBuffer.reserve(sizeof(double)*xDim*yDim);		
+	backBuffer.reserve(sizeof(double)*xDim*yDim);	*/	
+
+/*	double ** test;
+	test = createArray2D(10,10);*/
+
+	double * test;
+	test = new double [10]; 
+
+	for(int x=0; x<xDim; x++){
+		for(int y=0; y<yDim; y++){
+
+			test[x] = (double) x*y;
+		}
+	}
+
+	for(int x=0; x<xDim; x++){
+		for(int y=0; y<yDim; y++){
+
+			printf("%5.5f\n", test[x]);
+		}
+	}	
 
 }
 
@@ -175,4 +195,17 @@ void d3q7::density()
 			}
 		}
   	}
+}
+
+double ** d3q7::createArray2D(int xSize, int ySize)
+{
+	double ** field2D;
+	field2D = static_cast<double**>(malloc(xSize * sizeof(double*)));
+
+	for(int i=0; i<xSize; i++)
+	{
+		field2D[i] = static_cast<double*>(malloc(ySize * sizeof(double)));
+	}
+
+	return field2D;
 }

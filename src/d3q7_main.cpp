@@ -64,17 +64,17 @@ int main(){
 
   	//Simulation initialization
   	printf("Simulation setup.\n");
-	d3q7::DensityField3D sourceTemp;
+/*	d3q7::DensityField3D sourceTemp;
 	sourceTemp.reserve(sizeof(double)*xDim*yDim*zDim);
 	for(int z=0; z<zDim; z++){
 		sourceTemp[17][17][z] = 1;
 		sourceTemp[34][17][z] = -1;
 		sourceTemp[17][34][z] = -1;	
 		sourceTemp[34][34][z] = 1;	
-	}
+	}*/
 
 	d3q7 simulation = d3q7(xDim, yDim, zDim);
-	simulation.loadSource(sourceTemp);
+//	simulation.loadSource(sourceTemp);
 
 	//rhoDisplayTemp[xDim][yDim];
 

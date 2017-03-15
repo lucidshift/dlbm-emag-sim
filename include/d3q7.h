@@ -3,6 +3,8 @@
 
 #include <stdint.h>
 #include <vector>
+#include <stdio.h>
+#include <stdlib.h>
 
 static const int T = 1;
 static const int velCount = 7;
@@ -53,6 +55,8 @@ private:
 	void stream();
 
 	void density();
+
+	double ** createArray2D(int xSize, int ySize);
 
 };
 
