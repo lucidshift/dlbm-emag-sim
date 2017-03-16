@@ -50,13 +50,15 @@ private:
 	DensityVectorField2D frontBuffer; 	    //Velocity 5
 	DensityVectorField2D backBuffer;		//Velocity 6
 
+	double * test;
+
 	void collision();
 
 	void stream();
 
 	void density();
 
-	double ** createArray2D(int xSize, int ySize);
+	double * createArray2D(double * a, int xSize, int ySize);
 
 };
 

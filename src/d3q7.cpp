@@ -21,23 +21,23 @@ d3q7::d3q7(int xDim, int yDim, int zDim) :
 	frontBuffer.reserve(sizeof(double)*xDim*yDim); 	    
 	backBuffer.reserve(sizeof(double)*xDim*yDim);	*/	
 
-/*	double ** test;
-	test = createArray2D(10,10);*/
+	test = new double [xDim * yDim * zDim];
 
-	double * test;
-	test = new double [10]; 
+	//double * actualArray = ;
+	auto actualArray = (double(*)[xDim][yDim]) test;
+
 
 	for(int x=0; x<xDim; x++){
 		for(int y=0; y<yDim; y++){
 
-			test[x] = (double) x*y;
+			actualArray[x][y][0] = (double) x*y;
 		}
 	}
 
 	for(int x=0; x<xDim; x++){
 		for(int y=0; y<yDim; y++){
 
-			printf("%5.5f\n", test[x]);
+			printf("%5.5f\n", actualArray[x][y][0]);
 		}
 	}	
 
@@ -197,15 +197,10 @@ void d3q7::density()
   	}
 }
 
-double ** d3q7::createArray2D(int xSize, int ySize)
+double * d3q7::createArray2D(double * a, int xSize, int ySize)
 {
-	double ** field2D;
-	field2D = static_cast<double**>(malloc(xSize * sizeof(double*)));
-
-	for(int i=0; i<xSize; i++)
-	{
-		field2D[i] = static_cast<double*>(malloc(ySize * sizeof(double)));
-	}
+	double * field2D;
+	//double (*field2D)[xSize][ySize] = (double(*)[xSize][ySize]) a;
 
 	return field2D;
 }
