@@ -8,39 +8,17 @@ d3q7::d3q7(int xDim, int yDim, int zDim) :
 	yDim(yDim),
 	zDim(zDim)
 {
+	_rho = new double [xDim * yDim * zDim];
+	_rhoVector = new double [velCount * xDim * yDim * zDim];
+	_rhoDisplay = new double [yDim * zDim];
+	_source = new double [xDim * yDim * zDim];
 
-/*	rho.reserve(sizeof(double)*xDim*yDim*zDim);
-	rhoVector.reserve(sizeof(double)*velCount*xDim*yDim*zDim);
-	rhoDisplay.reserve(sizeof(double)*yDim*zDim);
-	source.reserve(sizeof(double)*xDim*yDim*zDim);
-
-	leftBuffer.reserve(sizeof(double)*yDim*zDim); 		
-	rightBuffer.reserve(sizeof(double)*yDim*zDim);		
-	topBuffer.reserve(sizeof(double)*xDim*zDim); 		
-	bottomBuffer.reserve(sizeof(double)*xDim*zDim);	    
-	frontBuffer.reserve(sizeof(double)*xDim*yDim); 	    
-	backBuffer.reserve(sizeof(double)*xDim*yDim);	*/	
-
-	test = new double [xDim * yDim * zDim];
-
-	//double * actualArray = ;
-	auto actualArray = (double(*)[xDim][yDim]) test;
-
-
-	for(int x=0; x<xDim; x++){
-		for(int y=0; y<yDim; y++){
-
-			actualArray[x][y][0] = (double) x*y;
-		}
-	}
-
-	for(int x=0; x<xDim; x++){
-		for(int y=0; y<yDim; y++){
-
-			printf("%5.5f\n", actualArray[x][y][0]);
-		}
-	}	
-
+	_leftBuffer = new double [velCount * yDim * zDim]; 		
+	_rightBuffer = new double [velCount * yDim * zDim];		
+	_topBuffer = new double [velCount * xDim * zDim]; 		
+	_bottomBuffer = new double [velCount * xDim * zDim];	    
+	_frontBuffer = new double [velCount * xDim * yDim]; 	    
+	_backBuffer = new double [velCount * xDim * yDim];		
 }
 
 d3q7::~d3q7(){};
@@ -54,14 +32,16 @@ bool d3q7::iterate()
 	return true;
 }
 
-bool d3q7::loadSource(DensityField3D& inputSource)
+bool d3q7::loadSource(DensityField3D inputSource)
 {
+	double (*source)[yDim][zDim] = (double(*)[yDim][zDim]) _source;
+	double (*inputSourceTemp)[yDim][zDim] = (double(*)[yDim][zDim]) inputSource;
 
 	for(int x=0; x<xDim; x++){
 		for(int y=0; y<yDim; y++){
 			for(int z=0; z<zDim; z++){
 
-				source[x][y][z] = inputSource[x][y][z];
+				source[x][y][z] = inputSourceTemp[x][y][z];
 			}
 		}
 	}
@@ -69,13 +49,16 @@ bool d3q7::loadSource(DensityField3D& inputSource)
 	return true;
 }
 
-d3q7::DensityField3D * d3q7::getArray()
+d3q7::DensityField3D d3q7::getArray()
 {
-	return &rho;
+	return _rho;
 }
 
-d3q7::DensityField2D * d3q7::getSlice(int zDimSlice)
+d3q7::DensityField2D d3q7::getSlice(int zDimSlice)
 {
+	double (*rho)[yDim][zDim] = (double(*)[yDim][zDim]) _rho;
+	double (*rhoDisplay)[zDim] = (double(*)[zDim]) _rhoDisplay;
+
 	for(int x=0; x<xDim; x++){
 		for(int y=0; y<yDim; y++){
 
@@ -83,13 +66,16 @@ d3q7::DensityField2D * d3q7::getSlice(int zDimSlice)
 		}
 	}
 
-	return &rhoDisplay;
+	return _rhoDisplay;
 }
 
 //Private members
 
 void d3q7::collision()
 {
+	double (*rho)[yDim][zDim] = (double(*)[yDim][zDim]) _rho;
+	double (*rhoVector)[xDim][yDim][zDim] = (double(*)[xDim][yDim][zDim]) _rhoVector;
+	double (*source)[yDim][zDim] = (double(*)[yDim][zDim]) _source;
 
 	for(int x=0; x<xDim; x++){
 		for(int y=0; y<yDim; y++){
@@ -106,6 +92,14 @@ void d3q7::collision()
 
 void d3q7::stream()
 {
+	double (*rhoVector)[xDim][yDim][zDim] = (double(*)[xDim][yDim][zDim]) _rhoVector;
+
+	double (*leftBuffer)[yDim][zDim] = (double(*)[yDim][zDim]) _leftBuffer;
+	double (*rightBuffer)[yDim][zDim] = (double(*)[yDim][zDim]) _rightBuffer;
+	double (*topBuffer)[xDim][zDim] = (double(*)[xDim][zDim]) _topBuffer;
+	double (*bottomBuffer)[xDim][zDim] = (double(*)[xDim][zDim]) _bottomBuffer;
+	double (*frontBuffer)[xDim][yDim] = (double(*)[xDim][yDim]) _frontBuffer;
+	double (*backBuffer)[xDim][yDim] = (double(*)[xDim][yDim]) _backBuffer;
 
 	//Velocity 1
 	for(int y=yDim-1; y>=0; y--){
@@ -182,6 +176,8 @@ void d3q7::stream()
 
 void d3q7::density()
 {
+	double (*rho)[yDim][zDim] = (double(*)[yDim][zDim]) _rho;
+	double (*rhoVector)[xDim][yDim][zDim] = (double(*)[xDim][yDim][zDim]) _rhoVector;
 
     for (int x=0;x<xDim;x++){
       	for (int y=0;y<yDim;y++){
@@ -195,12 +191,4 @@ void d3q7::density()
 			}
 		}
   	}
-}
-
-double * d3q7::createArray2D(double * a, int xSize, int ySize)
-{
-	double * field2D;
-	//double (*field2D)[xSize][ySize] = (double(*)[xSize][ySize]) a;
-
-	return field2D;
 }

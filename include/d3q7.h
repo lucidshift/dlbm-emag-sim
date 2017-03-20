@@ -15,10 +15,10 @@ class d3q7
 
 public:
 
-	typedef std::vector< std::vector<double> > DensityField2D;
-	typedef std::vector< std::vector< std::vector<double> > > DensityVectorField2D;
-	typedef std::vector< std::vector< std::vector<double> > > DensityField3D;
-	typedef std::vector< std::vector< std::vector< std::vector<double> > > > DensityVectorField3D;
+	typedef double * DensityField2D;
+	typedef double * DensityVectorField2D;
+	typedef double * DensityField3D;
+	typedef double * DensityVectorField3D;
 
 	d3q7(int xDim, int yDim, int zDim);
 
@@ -26,11 +26,11 @@ public:
 
 	bool iterate();
 
-	bool loadSource(DensityField3D& inputSource);
+	bool loadSource(DensityField3D inputSource);	//TODO: Make return and input types vectors
 
-	DensityField3D * getArray();
+	DensityField3D getArray();	//TODO: Make return and input types vectors
 
-	DensityField2D * getSlice(int zDimSlice);
+	DensityField2D getSlice(int zDimSlice);	//TODO: Make return and input types vectors
 
 private:
 
@@ -38,28 +38,23 @@ private:
 	int yDim;
 	int zDim;
 
-	DensityField3D rho;
-	DensityVectorField3D rhoVector;
-	DensityField2D rhoDisplay;
-	DensityField3D source;
+	DensityField3D _rho;
+	DensityVectorField3D _rhoVector;
+	DensityField2D _rhoDisplay;
+	DensityField3D _source;
 
-	DensityVectorField2D leftBuffer; 		//Velocity 1
-	DensityVectorField2D rightBuffer;		//Velocity 2
-	DensityVectorField2D topBuffer; 		//Velocity 3
-	DensityVectorField2D bottomBuffer;	    //Velocity 4
-	DensityVectorField2D frontBuffer; 	    //Velocity 5
-	DensityVectorField2D backBuffer;		//Velocity 6
-
-	double * test;
+	DensityVectorField2D _leftBuffer; 		//Velocity 1
+	DensityVectorField2D _rightBuffer;		//Velocity 2
+	DensityVectorField2D _topBuffer; 		//Velocity 3
+	DensityVectorField2D _bottomBuffer;	    //Velocity 4
+	DensityVectorField2D _frontBuffer; 	    //Velocity 5
+	DensityVectorField2D _backBuffer;		//Velocity 6
 
 	void collision();
 
 	void stream();
 
 	void density();
-
-	double * createArray2D(double * a, int xSize, int ySize);
-
 };
 
 #endif

@@ -63,23 +63,30 @@ int main(){
   	EndMenu();
 
   	//Simulation initialization
-  	printf("Simulation setup.\n");
-/*	d3q7::DensityField3D sourceTemp;
-	sourceTemp.reserve(sizeof(double)*xDim*yDim*zDim);
-	for(int z=0; z<zDim; z++){
-		sourceTemp[17][17][z] = 1;
-		sourceTemp[34][17][z] = -1;
-		sourceTemp[17][34][z] = -1;	
-		sourceTemp[34][34][z] = 1;	
-	}*/
-
-	d3q7 simulation = d3q7(xDim, yDim, zDim);
-//	simulation.loadSource(sourceTemp);
-
-	//rhoDisplayTemp[xDim][yDim];
 
 	cpuCount = sysconf(_SC_NPROCESSORS_ONLN);
-	printf("Number of CPU cores availible = %d\n", cpuCount);
+	printf("Number of CPU cores availible = %d\n", cpuCount);  	
+  	printf("Simulation initialization.\n");
+
+	d3q7::DensityField3D _rho = new double [xDim * yDim * zDim];
+	d3q7::DensityField3D _inputSource = new double [xDim * yDim * zDim];  
+	double (*rho)[yDim][zDim] = (double(*)[yDim][zDim]) _rho;
+	double (*inputSource)[yDim][zDim] = (double(*)[yDim][zDim]) _inputSource;	
+
+	for(int z=0; z<zDim; z++){
+		inputSource[17][17][z] = 1;
+		inputSource[34][17][z] = -1;
+		inputSource[17][34][z] = -1;	
+		inputSource[34][34][z] = 1;	
+	}
+
+	d3q7 simulation = d3q7(xDim, yDim, zDim);
+	simulation.loadSource(_inputSource);
+  	printf("Simulation initialization complete.\n");
+
+	d3q7::DensityField2D _rhoDisplay = simulation.getSlice(sliceLoc);
+	//double (*rhoDisplay)[zDim] = (double(*)[zDim]) _rhoDisplay;
+	//rhoDisplayArray* = rhoDisplay*;
 
 	printf("Main loop.\n");
   	while (!done){
@@ -92,7 +99,19 @@ int main(){
   		}
 	    if(cont){
 	    	simulation.iterate();
-	    	deltaTime();
+
+			_rhoDisplay = simulation.getSlice(sliceLoc);
+			double (*rhoDisplay)[zDim] = (double(*)[zDim]) _rhoDisplay;
+
+			for(int x=0; x<xDim; x++){
+				for(int y=0; y<yDim; y++){
+
+					rhoDisplayArray[x][y] = rhoDisplay[x][y];
+				}
+			}
+			//rhoDisplayArray* = rhoDisplay*;	 //Could get dicey here.
+
+	    	deltaTime();	//TODO: Fix time wrapping, maybe rewrite whole thing.
 	    }
 
 	    drawCount++;
