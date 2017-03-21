@@ -21,7 +21,19 @@ d3q7::d3q7(int xDim, int yDim, int zDim) :
 	_backBuffer = new double [velCount * xDim * yDim];		
 }
 
-d3q7::~d3q7(){};
+d3q7::~d3q7()
+{
+	delete [] _rho;
+	delete [] _rhoVector;
+	delete [] _rhoDisplay;
+	delete [] _source;
+	delete [] _leftBuffer;
+	delete [] _rightBuffer;
+	delete [] _topBuffer;
+	delete [] _bottomBuffer;
+	delete [] _frontBuffer;
+	delete [] _backBuffer;
+};
 
 bool d3q7::iterate()
 {
