@@ -98,8 +98,8 @@ int main(){
 		d3q7 simulation = d3q7(xDim, yDim, zDim);
 		simulation.loadSource(_inputSource);
 		d3q7::DensityField2D _rhoDisplay = simulation.getSlice(sliceLoc);
-	  	//printf("Simulation initialization complete.\n");
-
+		deltaTime(); //Set the count for the iteration.
+	  	printf("Simulation initialization complete.\n");
 
 		for(int it=0; it<itCountMax; it++){
 			//printf("Simulation initialization.\n");
@@ -138,17 +138,17 @@ int main(){
 			    		timeAvg[it] = timeAvg[it-1];
 			    		timeAvgTotal += timeAvg[it-1];
 			    	}
-			    //}
+			    }
 
-			    drawCount++;
-		  	}
-
-		  	timeAvgTotal = timeAvgTotal / itCountMax;
-		  	printf("Average time delay =%7.7f ms.\n", timeAvgTotal);
-
-		  	delete [] _rho;
-		  	delete [] _rhoDisplay;
-		  	delete [] _inputSource;
+			    	drawCount++;
+		  	//}
 	  	}
+
+		timeAvgTotal = timeAvgTotal / itCountMax;
+		printf("Volume = %u, time delay = %7.7f ms.\n", i*i*i, timeAvgTotal);
+
+/*	  	delete [] _rho;
+	  	delete [] _rhoDisplay;
+	  	delete [] _inputSource;	 */ 	
   	}
 }

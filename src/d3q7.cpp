@@ -27,6 +27,7 @@ d3q7::~d3q7()
 	delete [] _rhoVector;
 	delete [] _rhoDisplay;
 	delete [] _source;
+	
 	delete [] _leftBuffer;
 	delete [] _rightBuffer;
 	delete [] _topBuffer;
