@@ -99,7 +99,7 @@ int main(){
 		simulation.loadSource(_inputSource);
 		d3q7::DensityField2D _rhoDisplay = simulation.getSlice(sliceLoc);
 		deltaTime(); //Set the count for the iteration.
-	  	printf("Simulation initialization complete.\n");
+	  	//printf("Simulation initialization complete.\n");
 
 		for(int it=0; it<itCountMax; it++){
 			//printf("Simulation initialization.\n");
