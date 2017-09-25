@@ -12,6 +12,7 @@ extern "C" {
 #include "d3q7.h"
 #include "Kinematics.h"
 #include "Electrodynamics.h"
+#include "Simulation.h"
 
 #define itCountMax 30
 

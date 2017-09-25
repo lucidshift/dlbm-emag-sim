@@ -2,7 +2,7 @@
 #define SIMULATION_H
 
 #include "Fields.h"
-#include "Kinematics.h"
+#include "IFerroic.h"
 #include "Electrodynamics.h"
 
 class Simulation
@@ -10,13 +10,13 @@ class Simulation
 
 public:
 	
-	Simulation(x, y, z, int threadCount=1);
+	Simulation(int x, int y, int z, int threadCount=1);
 
 	~Simulation();
 
-	DensityField3D getSimField();
+	Fields::DensityField3D getSimField();
 
-	void insertFerriocs(IFerroic);
+	//void insertFerriocs(physics::IFerroic ferrioc);
 
 	void iterate();
 
