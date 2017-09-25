@@ -1,0 +1,62 @@
+Main:
+
+Simulation(x, y, z, int threadCount=1) : Kinematics, 
+
+	id3q7 getSimField()
+	insertFerriocs(IFerroic)
+	iterate()
+	iterateFor()
+
+
+Fields
+	typedef vectorfield
+	typedef scalarfield
+
+
+//Push/pulls data from gpu if needed
+Fields.h
+static VectorMath()
+
+	curl(vectorfield)
+	multiply(vectorfield)
+
+
+static Kinematics : VectorMath
+	
+	stepSystem()
+
+
+static Electrodynamics : VectorMath
+
+	getFieldEnergy(field &)
+	calcOrbitalCurrent(field &)
+	calcForce(field &)
+	calcHField
+	calcBField
+	calcMu
+
+
+#include Fields.h
+ID3Q7(x, y, z)
+	iterate()s
+	loadSource(DensityField3D)
+	scalarfield getField()
+	scalarfield getSlice(z)
+
+		D3Q7_lbm
+		D3Q7_vector //Push/pulls data from gpu if needed
+
+#include Fields.h
+IFerroic()
+	struct Properties {
+		bool mobile,
+
+	}
+
+	getProperties()
+	getField()
+
+		Projectile(midpoint, length, radius, permeability)
+
+
+ICurrentPath : Fields

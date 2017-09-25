@@ -45,7 +45,7 @@ bool d3q7::iterate()
 	return true;
 }
 
-bool d3q7::loadSource(DensityField3D inputSource)
+bool d3q7::loadSource(Fields::DensityField3D inputSource)
 {
 	double (*source)[yDim][zDim] = (double(*)[yDim][zDim]) _source;
 	double (*inputSourceTemp)[yDim][zDim] = (double(*)[yDim][zDim]) inputSource;
@@ -62,12 +62,12 @@ bool d3q7::loadSource(DensityField3D inputSource)
 	return true;
 }
 
-d3q7::DensityField3D d3q7::getArray()
+Fields::DensityField3D d3q7::getArray()
 {
 	return _rho;
 }
 
-d3q7::DensityField2D d3q7::getSlice(int zDimSlice)
+Fields::DensityField2D d3q7::getSlice(int zDimSlice)
 {
 	double (*rho)[yDim][zDim] = (double(*)[yDim][zDim]) _rho;
 	double (*rhoDisplay)[zDim] = (double(*)[zDim]) _rhoDisplay;
