@@ -13,12 +13,12 @@ d3q7::d3q7(int xDim, int yDim, int zDim) :
 	_rhoDisplay = new double [yDim * zDim];
 	_source = new double [xDim * yDim * zDim];
 
-	_leftBuffer = new double [velCount * yDim * zDim]; 		
-	_rightBuffer = new double [velCount * yDim * zDim];		
-	_topBuffer = new double [velCount * xDim * zDim]; 		
-	_bottomBuffer = new double [velCount * xDim * zDim];	    
-	_frontBuffer = new double [velCount * xDim * yDim]; 	    
-	_backBuffer = new double [velCount * xDim * yDim];		
+	_leftBuffer = new double [velCount * yDim * zDim];
+	_rightBuffer = new double [velCount * yDim * zDim];
+	_topBuffer = new double [velCount * xDim * zDim];
+	_bottomBuffer = new double [velCount * xDim * zDim];
+	_frontBuffer = new double [velCount * xDim * yDim];
+	_backBuffer = new double [velCount * xDim * yDim];
 }
 
 d3q7::~d3q7()
@@ -27,7 +27,7 @@ d3q7::~d3q7()
 	delete [] _rhoVector;
 	delete [] _rhoDisplay;
 	delete [] _source;
-	
+
 	delete [] _leftBuffer;
 	delete [] _rightBuffer;
 	delete [] _topBuffer;
@@ -120,13 +120,13 @@ void d3q7::stream()
 			leftBuffer[1][y][z] = rhoVector[1][xDim-1][y][z];
 		}
 	}
-	memmove(&rhoVector[1][1][0][0], &rhoVector[1][0][0][0], (sizeof(double)*(xDim-1)*(yDim)*(zDim)));	
+	memmove(&rhoVector[1][1][0][0], &rhoVector[1][0][0][0], (sizeof(double)*(xDim-1)*(yDim)*(zDim)));
 
 	//Velocity 2
 	for(int x=xDim-1; x>=0; x--){
 		for(int z=0; z<zDim; z++){
 			bottomBuffer[2][x][z] = rhoVector[2][x][yDim-1][z];
-		}	
+		}
 	}
 	memmove(&rhoVector[2][0][1][0], &rhoVector[2][0][0][0], (sizeof(double)*(xDim)*(yDim-1)*(zDim)));
 
@@ -160,7 +160,7 @@ void d3q7::stream()
 			backBuffer[6][x][y] = rhoVector[6][x][y][0];
 		}
 	}
-	memmove(&rhoVector[6][0][0][0], &rhoVector[6][0][0][1], (sizeof(double)*(xDim)*(yDim)*(zDim-1)));	
+	memmove(&rhoVector[6][0][0][0], &rhoVector[6][0][0][1], (sizeof(double)*(xDim)*(yDim)*(zDim-1)));
 
 
 	//Merge velocities from buffers
@@ -183,7 +183,7 @@ void d3q7::stream()
 			rhoVector[5][x][y][0] = frontBuffer[5][x][y];
 			rhoVector[6][x][y][zDim-1] = backBuffer[6][x][y];
 		}
-	}	
+	}
 }
 
 

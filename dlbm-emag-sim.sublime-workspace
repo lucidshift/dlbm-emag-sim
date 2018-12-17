@@ -29,10 +29,18 @@
 			}
 		},
 		{
+			"file": "src/GeneralSimulation.cpp",
+			"settings":
+			{
+				"buffer_size": 6088,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "src/d3q7_main.cpp",
 			"settings":
 			{
-				"buffer_size": 2048,
+				"buffer_size": 3662,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -41,7 +49,16 @@
 			"file": "src/d3q7.cpp",
 			"settings":
 			{
-				"buffer_size": 4304,
+				"buffer_size": 5178,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Makefile",
+			"settings":
+			{
+				"buffer_size": 2233,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -50,7 +67,7 @@
 			"file": "include/d3q7.h",
 			"settings":
 			{
-				"buffer_size": 1373,
+				"buffer_size": 1268,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -88,7 +105,8 @@
 	},
 	"expanded_folders":
 	[
-		"/home/chad/projects/dlbm-emag-sim"
+		"/home/chad/projects/dlbm-emag-sim",
+		"/home/chad/projects/dlbm-emag-sim/src"
 	],
 	"file_history":
 	[
@@ -153,7 +171,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -169,8 +187,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								445,
+								445
 							]
 						],
 						"settings":
@@ -179,32 +197,91 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2799.0,
+						"translation.y": 1224.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "src/d3q7_main.cpp",
+					"file": "src/GeneralSimulation.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2048,
+						"buffer_size": 6088,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								152,
-								152
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/d3q7_main.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3662,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								172,
+								172
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/d3q7.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5178,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4953,
+								4953
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -214,49 +291,48 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "src/d3q7.cpp",
+					"buffer": 4,
+					"file": "Makefile",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4304,
+						"buffer_size": 2233,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								937,
-								937
+								1017,
+								1017
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Makefile/Makefile.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 5,
 					"file": "include/d3q7.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1373,
+						"buffer_size": 1268,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								263,
-								263
+								29,
+								0
 							]
 						],
 						"settings":
@@ -265,10 +341,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 204.0,
+						"translation.y": 449.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -351,7 +427,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 178.0,
+	"side_bar_width": 284.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

@@ -8,7 +8,7 @@
 
 static const int T = 1;
 static const int velCount = 7;
-static const std::vector<double> velDist = {0.25,0.125,0.125,0.125,0.125,0.125,0.125};	
+static const std::vector<double> velDist = {0.25,0.125,0.125,0.125,0.125,0.125,0.125};
 
 class d3q7
 {
