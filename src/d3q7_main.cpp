@@ -4,12 +4,15 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
+#include <vector.h>
+#include <thread>
 
 extern "C" {
 	#include <mygraph.h>
 }
 
 #include "d3q7.h"
+class d3q7;
 
 #define itCountMax 30
 
@@ -54,12 +57,13 @@ void deltaTime(){
 int main(){
 	printf("Main startup.\n");
   	int done=0;
-  	int cont=1;
+  	int cont=0;
   	int reset=0;
   	int repeat=100;
   	int drawCount=0;
+  	int threadCount=4;
 
-	DefineGraphNxN_R("XY Density",&rhoDisplayArray[0][0],&xDim,&yDim,NULL);  		
+	DefineGraphNxN_R("XY Density",&rhoDisplayArray[0][0],&xDim,&yDim,NULL);
 
 	StartMenu("Start",1);
     DefineBool("Run Simulation",&cont);
@@ -67,55 +71,88 @@ int main(){
     DefineInt("Repeat", &repeat);
     DefineInt("Slice", &sliceLoc);
     DefineInt("Cube Dim Max", &cubeMax);
+    DefineInt("Thread Count", &threadCount);
     DefineGraph(contour2d_,"Densities");
-    DefineGraph(curve2d_,"Graphs");    
+    DefineGraph(curve2d_,"Graphs");
   	DefineBool("Quit",&done);
   	EndMenu();
 
   	//Simulation initialization
 	cpuCount = sysconf(_SC_NPROCESSORS_ONLN);
-	printf("Number of CPU cores availible = %d\n", cpuCount);  	
+	printf("Number of CPU cores (and hyperthreads) availible = %d\n", cpuCount);
 
-	for(int i=50; i<cubeMax; i++){
-		timeAvgTotal = 0;
-		xDim = i;
-		yDim = i;
-		zDim = i;
+	//Hold at startup for configuration.
+	while(cont==0)
+	{
+		usleep(100000);
+		Events(1);
+	}
 
-		d3q7::DensityField3D _rho = new double [xDim * yDim * zDim];
-		d3q7::DensityField3D _inputSource = new double [xDim * yDim * zDim];  
-		double (*rho)[yDim][zDim] = (double(*)[yDim][zDim]) _rho;
-		double (*inputSource)[yDim][zDim] = (double(*)[yDim][zDim]) _inputSource;	
+	while (!done){
+		for(int i=50; i<cubeMax; i++){
+			timeAvgTotal = 0;
+			xDim = i;
+			yDim = i;
+			zDim = i;
 
-		//Loop through many sizes
-		for(int z=0; z<zDim; z++){
-			inputSource[17][17][z] = 1;
-			inputSource[34][17][z] = -1;
-			inputSource[17][34][z] = -1;	
-			inputSource[34][34][z] = 1;	
-		}
+			std::vector<d3q7*> simulation;
 
-		d3q7 simulation = d3q7(xDim, yDim, zDim);
-		simulation.loadSource(_inputSource);
-		d3q7::DensityField2D _rhoDisplay = simulation.getSlice(sliceLoc);
-		deltaTime(); //Set the count for the iteration.
-	  	//printf("Simulation initialization complete.\n");
+			d3q7::DensityField3D _rho = new double [xDim * yDim * zDim];
+			d3q7::DensityField3D _inputSource = new double [xDim * yDim * zDim];
+			double (*rho)[yDim][zDim] = (double(*)[yDim][zDim]) _rho;
+			double (*inputSource)[yDim][zDim] = (double(*)[yDim][zDim]) _inputSource;
 
-		for(int it=0; it<itCountMax; it++){
-			//printf("Simulation initialization.\n");
-		  	//while (!done){
+			//Loop through many sizes
+			for(int z=0; z<zDim; z++){
+				inputSource[17][17][z] = 1;
+				inputSource[34][17][z] = -1;
+				inputSource[17][34][z] = -1;
+				inputSource[34][34][z] = 1;
+			}
+
+			for(int i=0; i<threadCount; i++)
+			{
+				d3q7 * simTemp = new d3q7(xDim, yDim, zDim);
+				simulation.push_back(simTemp);
+				//d3q7::DensityField2D _rhoDisplay = simulation[i].getSlice(sliceLoc);
+			}
+			//printf("Finished allocating memory.\n");
+
+			for(int i=0; i<threadCount; i++)
+			{
+				simulation.at(i)->loadSource(_inputSource);
+				//d3q7::DensityField2D _rhoDisplay = simulation[i].getSlice(sliceLoc);
+			}
+			//printf("Simulation initialization complete.\n");
+
+			std::vector<std::thread> threads;
+			deltaTime(); //Set the count for the iteration.
+			for(int it=0; it<itCountMax; it++){
+
 		  		if(drawCount>repeat){
 		      		Events(1);
 
 		      		//rhoDisplay* = simulation.getSlice();
-		      		DrawGraphs();		
+		      		DrawGraphs();
 		      		drawCount = 0;
 		  		}
-			    if(cont){
-			    	simulation.iterate();
 
-					_rhoDisplay = simulation.getSlice(sliceLoc);
-					double (*rhoDisplay)[zDim] = (double(*)[zDim]) _rhoDisplay;
+			    if(cont){
+
+			    	for(int index=0; index<threadCount; index++)
+			    	{
+			    		threads.push_back( std::thread(&d3q7::iterate,  simulation.at(index)) );
+/*			    		pthread_create(&pth[index],NULL,
+			    			(void*) &(simulation[index].iterate),
+			    			void);*/
+			    	}
+
+					for(int index = 0; index<threadCount; index++){
+						threads[index].join();
+					}
+
+					// _rhoDisplay = simulation.getSlice(sliceLoc);
+					// double (*rhoDisplay)[zDim] = (double(*)[zDim]) _rhoDisplay;
 
 /*					for(int x=0; x<xDim; x++){
 						for(int y=0; y<yDim; y++){
@@ -124,8 +161,6 @@ int main(){
 						}
 					}*/
 					//rhoDisplayArray* = rhoDisplay*;	 //Could get dicey here.
-
-			    	deltaTime();	//TODO: Fix time wrapping, maybe rewrite whole thing.
 			    	if(t.dt > 0)
 			    	{
 			    		timeAvg[it] = t.dt;
@@ -138,17 +173,26 @@ int main(){
 			    		timeAvg[it] = timeAvg[it-1];
 			    		timeAvgTotal += timeAvg[it-1];
 			    	}
+				    deltaTime();	//TODO: Fix time wrapping, maybe rewrite whole thing.
+
+				    threads.clear();
 			    }
+			    drawCount++;
 
-			    	drawCount++;
-		  	//}
+				//Pause iteration.
+				while(cont==0)
+				{
+					usleep(100000);
+					Events(1);
+				}
+		  	}
+
+			timeAvgTotal = timeAvgTotal / itCountMax;
+			printf("Cube Size = %u, Total Volume = %u, Time delay = %7.7f ms, Elements per second = %7.0f\n", i, i*i*i*threadCount, timeAvgTotal, (i*i*i*threadCount)/timeAvgTotal );
+
+	/*	  	delete [] _rho;
+		  	delete [] _rhoDisplay;
+		  	delete [] _inputSource;	 */
 	  	}
-
-		timeAvgTotal = timeAvgTotal / itCountMax;
-		printf("Volume = %u, time delay = %7.7f ms.\n", i*i*i, timeAvgTotal);
-
-/*	  	delete [] _rho;
-	  	delete [] _rhoDisplay;
-	  	delete [] _inputSource;	 */ 	
-  	}
+	}
 }
